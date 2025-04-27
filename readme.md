@@ -15,4 +15,24 @@ A stylish Go web application to upload your bank statements (CSV/PDF), automatic
 ---
 
 ## 📁 Project Structure
-bank-analyzer/ ├── cmd/main.go ├── pkg/ │ ├── reader/ │ │ ├── reader.go │ │ └── pdf_reader.go │ ├── processor/categorize.go │ └── server/routes.go ├── static/index.html ├── uploads/ ├── sample/ │ ├── statement.csv │ └── statement.pdf ├── go.mod ├── go.sum ├── README.md
+bank-analyzer/
+├── cmd/
+│   └── main.go
+├── pkg/
+│   ├── reader/
+│   │   ├── reader.go
+│   │   └── pdf_reader.go
+│   ├── processor/
+│   │   └── categorize.go
+│   ├── server/
+│   │   └── routes.go
+├── static/
+│   └── index.html
+├── uploads/                # (Empty folder where uploaded files will go)
+├── sample/
+│   ├── statement.csv
+│   └── statement.pdf
+├── go.mod
+├── go.sum
+├── README.md
+
