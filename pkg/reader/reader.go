@@ -1,18 +1,12 @@
 package reader
 
 import (
+    "github.com/madhubolla2205/bank-analyzer/pkg/models"
     "encoding/csv"
     "os"
     "strconv"
 )
-
-type Transaction struct {
-    Date        string
-    Description string
-    Amount      float64
-}
-
-func ParseCSV(filePath string) ([]Transaction, error) {
+func ParseCSV(filePath string) ([]models.Transaction, error) {
     file, err := os.Open(filePath)
     if err != nil {
         return nil, err
@@ -25,13 +19,13 @@ func ParseCSV(filePath string) ([]Transaction, error) {
         return nil, err
     }
 
-    var transactions []Transaction
+    var transactions []models.Transaction
     for i, record := range records {
         if i == 0 {
             continue // Skip header
         }
         amount, _ := strconv.ParseFloat(record[2], 64)
-        transactions = append(transactions, Transaction{
+        transactions = append(transactions, models.Transaction{
             Date:        record[0],
             Description: record[1],
             Amount:      amount,

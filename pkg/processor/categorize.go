@@ -1,15 +1,19 @@
 package processor
 
-import "strings"
+import (
+    "strings"
+    "github.com/madhubolla2205/bank-analyzer/pkg/models"
+)
 
 type Categorized struct {
     Category string
     Amount   float64
 }
 
+
 var data = make(map[string]float64)
 
-func CategorizeTransactions(txns []Transaction) []Categorized {
+func CategorizeTransactions(txns []models.Transaction) []Categorized {
     for _, t := range txns {
         category := categorize(t.Description)
         data[category] += t.Amount

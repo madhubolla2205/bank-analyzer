@@ -3,7 +3,7 @@ package server
 import (
     "net/http"
     "strings"
-
+    "github.com/madhubolla2205/bank-analyzer/pkg/models"
     "github.com/gin-gonic/gin"
     "github.com/madhubolla2205/bank-analyzer/pkg/reader"
     "github.com/madhubolla2205/bank-analyzer/pkg/processor"
@@ -23,7 +23,7 @@ func SetupServer() *gin.Engine {
         savePath := "./uploads/" + file.Filename
         c.SaveUploadedFile(file, savePath)
 
-        var txns []reader.Transaction
+        var txns []models.Transaction
         var err error
 
         if strings.HasSuffix(file.Filename, ".csv") {
